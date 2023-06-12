@@ -2,57 +2,73 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Carbon\Carbon;
+
 
 class AppointmentController extends Controller
 {
-    // Afficher les rendez-vous de l'utilisateur
-    public function index()
+    public function docshow(Request $request)
     {
-        $appointments = auth()->user()->appointments;
-        return view('appointments.index', compact('appointments'));
+        $doctor = Auth::user();
+        $appointments = Appointment::where('doctor_name', $doctor->name)->get();
+        return view('appointments.docshow', ['doctor' => $doctor], ['appointments' => $appointments]);
     }
 
-    // Afficher les détails d'un rendez-vous
-    public function show(Appointment $appointment)
+    public function create(Request $request)
     {
-        return view('appointments.show', compact('appointment'));
+        $doctorId = $request->input('doctor');
+        $doctor = User::find($doctorId);
+        $appointments = Appointment::where('doctor_name', $doctor->name)->get();
+        return view('appointments.create', ['doctor' => $doctor], ['appointments' => $appointments]);
+    }
+    public function createAppointment(Request $request)
+{
+    // Récupérer l'ID du médecin connecté
+    $doctorId = json_decode($request->input('doctor'), true);
+    $keys = array_keys($doctorId);
+    $deuxiemeCle = $keys[1];
+    $deuxiemeElement = $doctorId[$deuxiemeCle];
+    $doctorName = $deuxiemeElement;
+
+    // Valider les données du formulaire
+    $validatedData = $request->validate([
+        'time' => 'required',
+        'date' => 'required',
+    ]);
+    
+    $dateTime = $validatedData['date'] . ' ' . $validatedData['time'];
+
+    $startDateTime = Carbon::parse($dateTime);
+    $endDateTime = $startDateTime->addMinutes(30);
+    // Créer un nouveau rendez-vous pour le médecin connecté
+    $appointment = new Appointment();
+    $appointment->doctor_name = $doctorName;
+    $appointment->start_time = $startDateTime;
+    $appointment->end_time = $endDateTime;
+    $appointment->patient_name = Auth::user()->name;
+    $appointment->save();
+
+    // Rediriger vers la page des rendez-vous du médecin
+    return redirect()->route('patients.home');
     }
 
-    // Créer un rendez-vous
-    public function store(Request $request)
-    {
-        // Valider les données du formulaire de création
-        $validatedData = $request->validate([
-            // inclure les règles de validation pour les champs nécessaires
-        ]);
+    public function delete(Request $request)
+{
+    $doctor = Auth::user();
 
-        // Créer le rendez-vous
-        $appointment = auth()->user()->appointments()->create($validatedData);
+    $appointment = Appointment::where('doctor_name', $doctor->name)
+        ->orderBy('start_time', 'asc')
+        ->first();
 
-        return redirect()->route('appointments.show', $appointment)->with('success', 'Rendez-vous créé avec succès !');
-    }
-
-    // Modifier un rendez-vous
-    public function update(Request $request, Appointment $appointment)
-    {
-        // Valider les données du formulaire de mise à jour
-        $validatedData = $request->validate([
-            // inclure les règles de validation pour les champs nécessaires
-        ]);
-
-        $appointment->update($validatedData);
-
-        return redirect()->route('appointments.show', $appointment)->with('success', 'Rendez-vous mis à jour avec succès !');
-    }
-
-    // Supprimer un rendez-vous
-    public function destroy(Appointment $appointment)
-    {
+    if ($appointment) {
         $appointment->delete();
-
-        return redirect()->route('appointments.index')->with('success', 'Rendez-vous supprimé avec succès !');
+       return view('doctors.home');
     }
+    return view('welcome');
+}
 }
 

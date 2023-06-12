@@ -18,6 +18,12 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
+     public function homepatient()
+    {
+        $doctors = User::where('role', 'doctor')->get();
+        return view('/patients/home',compact('doctors'));
+    }
+
     public function edit(Request $request): View
     {
         return view('profile.edit', [

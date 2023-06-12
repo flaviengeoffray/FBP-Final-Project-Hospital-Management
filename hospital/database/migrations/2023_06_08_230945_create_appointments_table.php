@@ -9,17 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    public function up()
+{
     Schema::create('appointments', function (Blueprint $table) {
-    $table->id();
-    $table->unsignedBigInteger('user_id');
-    $table->unsignedBigInteger('doctor_id');
-    $table->dateTime('appointment_date');
-    $table->text('prescription')->nullable();
-    $table->timestamps();
-    
-    $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-    $table->foreign('doctor_id')->references('id')->on('users')->onDelete('cascade');
+        $table->id();
+        $table->unsignedBigInteger('doctor_name');
+        $table->unsignedBigInteger('patient_name');
+        $table->dateTime('start_time');
+        $table->dateTime('end_time');
+        $table->timestamps();
     });
+}
+
 
 
     /**

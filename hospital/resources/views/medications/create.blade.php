@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Doctor') }}
         </h2>
     </x-slot>
 
@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Prescrire un médicament</div>
+                    <div class="card-header">Give a medication</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('medications.store') }}">
@@ -25,7 +25,7 @@
 
 
                             <div class="form-group">
-                                <label for="medication">Médicament :</label>
+                                <label for="medication">Medication :</label>
                                 <select name="medication_id" id="medication" class="form-control">
                                     @foreach($medications as $medication)
                                         <option value="{{ $medication->id }}">{{ $medication->name }}</option>

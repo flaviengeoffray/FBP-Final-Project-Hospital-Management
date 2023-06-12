@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Mes médicaments</div>
+                    <div class="card-header">My medicine</div>
 
                     <div class="card-body">
                         @if ($medications->count() > 0)
@@ -23,7 +23,7 @@
                                 <hr>
                             @endforeach
                         @else
-                            <p>Aucun médicament assigné.</p>
+                            <p>No medicine given.</p>
                         @endif
                     </div>
                 </div>

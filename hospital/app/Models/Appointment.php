@@ -1,6 +1,5 @@
 <?php
 
-<?php
 
 namespace App\Models;
 
@@ -14,7 +13,7 @@ class Appointment extends Model
     protected $fillable = [
         'user_id',
         'doctor_id',
-        'appointment_date',
+        'start_time',
         'prescription',
     ];
 

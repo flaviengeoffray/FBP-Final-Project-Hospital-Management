@@ -15,9 +15,9 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Médicament</th>
+                                    <th>Medication</th>
                                     <th>Dosage</th>
-                                    <th>Supr</th>
+                                    <th>DELETE</th>
                                     <!-- Autres colonnes de la table -->
                                 </tr>
                             </thead>
@@ -30,7 +30,7 @@
                                             <form method="POST" action="{{ route('prescriptions.destroy', $prescription->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit">Supprimer</button>
+                                                <button type="submit">Delete</button>
                                             </form>
                                         </td>
                                         <!-- Autres colonnes de la table -->
@@ -44,3 +44,4 @@
         </div>
     </div>
 </x-app-layout>
+
