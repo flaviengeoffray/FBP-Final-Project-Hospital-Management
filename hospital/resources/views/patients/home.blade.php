@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <a href="{{ route('medications.patient') }}" class="btn btn-primary">See my medicine</a>
+                    <a href="{{ route('medications.patient') }}" class="btn btn-primary" style="display: inline-block; padding: 10px 20px; background-color: #337ab7; color: #fff; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease;">See my medicine</a>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                             <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
                         @endforeach
                     </select>
-                    <button type="submit">Confirm</button>
+                    <button type="submit" style="display: inline-block; padding: 10px 20px; background-color: #337ab7; color: #fff; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease;">Confirm</button>
                 </form>
             </div>
         </div>

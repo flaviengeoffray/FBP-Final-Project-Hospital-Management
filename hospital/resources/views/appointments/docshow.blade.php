@@ -27,7 +27,7 @@
                     <form action="{{ route('appointments.delete') }}" method="POST">
                         @csrf
                         <input type="hidden" name="doctor_id" value="{{ $doctor->id }}">
-                        <button type="submit" class="btn btn-danger">Delete the oldest appointement</button>
+                        <button type="submit" class="btn btn-danger" style="display: inline-block; padding: 10px 20px; background-color: #337ab7; color: #fff; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease;">Delete the oldest appointement</button>
                     </form>
                 </div>
             </div>

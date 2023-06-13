@@ -17,7 +17,7 @@
                                 <tr>
                                     <th>Medication</th>
                                     <th>Dosage</th>
-                                    <th>DELETE</th>
+                                    
                                     <!-- Autres colonnes de la table -->
                                 </tr>
                             </thead>

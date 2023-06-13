@@ -56,7 +56,7 @@
                             @endfor
                         </select>
 
-                        <button type="submit">Creat appointement</button>
+                        <button type="submit" style="display: inline-block; padding: 10px 20px; background-color: #337ab7; color: #fff; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease;">Creat appointement</button>
                     </form>
                 </div>
             </div>
