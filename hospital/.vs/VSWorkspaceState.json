@@ -1,16 +1,17 @@
 {
   "ExpandedNodes": [
     "",
+    "\\app",
+    "\\app\\Http",
+    "\\app\\Http\\Controllers",
     "\\app\\View",
     "\\public",
     "\\public\\image",
     "\\resources",
     "\\resources\\views",
     "\\resources\\views\\appointments",
-    "\\resources\\views\\components",
-    "\\resources\\views\\nurses",
-    "\\resources\\views\\patients"
+    "\\routes"
   ],
-  "SelectedNode": "\\resources\\views\\appointments\\docshow.blade.php",
+  "SelectedNode": "\\app\\Http\\Controllers\\AppointmentController.php",
   "PreviewInSolutionExplorer": false
 }

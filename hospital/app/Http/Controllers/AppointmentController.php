@@ -43,11 +43,11 @@ class AppointmentController extends Controller
     $dateTime = $validatedData['date'] . ' ' . $validatedData['time'];
 
     $startDateTime = Carbon::parse($dateTime);
-    $endDateTime = $startDateTime->addMinutes(30);
     // Créer un nouveau rendez-vous pour le médecin connecté
     $appointment = new Appointment();
     $appointment->doctor_name = $doctorName;
     $appointment->start_time = $startDateTime;
+    $endDateTime = $startDateTime->addMinutes(30);
     $appointment->end_time = $endDateTime;
     $appointment->patient_name = Auth::user()->name;
     $appointment->save();

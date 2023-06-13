@@ -47,7 +47,7 @@ class ProfileController extends Controller
     public function printnurse()
     {
         $patients = User::where('role', 'patient')->get();
-        return view('nurses.home', compact('patients'));
+        return view('nurses/home', compact('patients'));
     }
 
     public function destroyPres($id)

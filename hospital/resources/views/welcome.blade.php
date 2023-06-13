@@ -30,16 +30,15 @@
                     @endauth
                 </div>
             @endif
-
+            <div class="mx-auto p-6 lg:p-8 flex items-center">
+                <h1 class="text-blue-500 text-2xl font-bold">WELCOME TO THE BEST HOSPITAL</h1>
+            </div>
             <div class="max-w-10xl mx-auto p-6 lg:p-8 ">
                 <div class="flex justify-center">
-                   
-                        <img src="{{ asset('image/ico.webp') }}" alt="Logo">
+                        <img src="{{ asset('image/ico.avif') }}">
 
                 </div>
-                    <div class="max-w-7xl mx-auto p-6 lg:p-8 flex justify-center items-center">
-                        <h1 class="text-blue-500 text-10xl font-bold">WELCOME TO THE BEST HOSPITAL</h1>
-                    </div>
+                    
             </div>
         </div>
         

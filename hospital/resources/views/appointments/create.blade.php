@@ -43,8 +43,18 @@
                         <label for="date">Date :</label>
                         <input type="date" name="date" id="date">
 
-                        <label for="time">Heure :</label>
-                        <input type="time" name="time" id="time">
+                        <select name="time" id="time">
+                            @for($hour = 8; $hour <= 20; $hour++)
+                                @for($minute = 0; $minute < 60; $minute += 30)
+                                    @php
+                                        $time = sprintf('%02d:%02d', $hour, $minute);
+                                        $timestamp = strtotime($time);
+                                        $isDisabled = ($timestamp < strtotime('08:00') || $timestamp > strtotime('20:00'));
+                                    @endphp
+                                    <option value="{{ $time }}" @if($isDisabled) disabled @endif>{{ $time }}</option>
+                                @endfor
+                            @endfor
+                        </select>
 
                         <button type="submit">Creat appointement</button>
                     </form>

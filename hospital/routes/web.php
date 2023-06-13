@@ -32,6 +32,7 @@ Route::get('/doctors/home', function () {
 })->middleware(['auth', 'verified'])->name('doctors.home');
 
 Route::get('/dashboard', function () {
+    
     if (Auth::check()) {
         $user = Auth::user();
         if ($user->role=='doctor') {
@@ -39,7 +40,7 @@ Route::get('/dashboard', function () {
         } elseif ($user->role=='patient') {
             return redirect('/patients/home');
         } elseif ($user->role=='nurse') {
-            return redirect('nurses.home');
+            return redirect('nurses/home');
         }
     }
 
