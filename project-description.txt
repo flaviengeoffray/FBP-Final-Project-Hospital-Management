@@ -1,0 +1,54 @@
+
+
+Description :
+Le système de gestion des patients et des infirmières est une application Laravel
+qui permet aux utilisateurs de s'inscrire et de se connecter en tant que patients ou infirmières.
+L'application offre différentes fonctionnalités en fonction du rôle de l'utilisateur.
+
+
+Fonctionnalités générales :
+
+Authentification : Les utilisateurs peuvent s'inscrire et se connecter à l'application.
+Un système d'authentification sécurisé est mis en place pour protéger les données des utilisateurs.
+
+
+Fonctionnalités côté patient :
+
+
+Dossier médical : Chaque patient a accès à son propre dossier médical.
+Le dossier médical contient des informations telles que les antécédents médicaux,
+les prescriptions, les résultats d'examens, etc.
+
+
+Sélection d'infirmière : Les patients peuvent choisir une infirmière parmi une liste d'infirmières
+disponibles. Cela leur permet de prendre rendez-vous avec une infirmière spécifique
+pour des soins particuliers.
+
+Messagerie : Les patients peuvent recevoir des messages de la part des infirmières
+et leur répondre. Cela facilite la communication entre le patient et l'infirmière,
+par exemple pour poser des questions sur le traitement ou les médicaments.
+
+
+Fonctionnalités côté infirmière :
+
+Liste des patients : Les infirmières ont accès à une liste de tous les patients dont elles s'occupent.
+Cela leur permet de voir rapidement les informations essentielles sur chaque patient.
+
+Dossiers médicaux des patients : Les infirmières peuvent accéder aux dossiers médicaux
+complets de chaque patient. Cela leur permet de consulter les antécédents médicaux,
+les prescriptions passées, les résultats d'examens, etc.
+
+Messagerie : Les infirmières peuvent envoyer des messages aux patients
+pour leur donner des instructions, des rappels de médicaments,
+des informations sur les soins, etc. Elles peuvent également recevoir des réponses des patients.
+
+
+Je souhaite creer un projet laravel. Une application. Je veux pouvoir me login ou me register. 
+Lorsque je me register je dois entrer mon nom, mon address mail, mon address reel et mon mot de pass et je peux choisir mon role. Soit patient soit infirmière.
+
+si je suis un patient je peux discuter avec l'infirmière qui m'a été assigné. je peux voir mon dossier medicale. je peux aussi accepter ou non les rendez vous proposés par l'infirmière.
+Pour les rendez vous. Je peux voir la date, l'heure et mon address. 
+
+si je suis infirmière je peux choisir parmis les nouveaux patients. Je peux en avoir 4 maximum. Je peux discuter avec le patient que je selectionne. fixer un rendez vous.
+et je peux voir tous mes rendez vous
+
