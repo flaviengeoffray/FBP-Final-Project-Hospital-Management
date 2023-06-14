@@ -6,14 +6,31 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('H') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        @if(auth()->check())
+                            @if(auth()->user()->role === 'patient')
+                                <img src="{{ asset('image/logoP.png') }}" alt="Logo Patient" class="h-9 w-auto">
+                            @elseif(auth()->user()->role === 'doctor')
+                                <img src="{{ asset('image/logoD.png') }}" alt="Logo Doctor" class="h-9 w-auto">
+                            @elseif(auth()->user()->role === 'nurse')
+                                <img src="{{ asset('image/logoN.png') }}" alt="Logo Nurse" class="h-9 w-auto">
+                            @endif
+                        @endif
                     </a>
-                </div>
+                </div> 
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Home') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Hospital') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Newspaper') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Email') }}
                     </x-nav-link>
                 </div>
             </div>
